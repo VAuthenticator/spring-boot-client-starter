@@ -1,0 +1,53 @@
+<script>
+    /*<![CDATA[*/
+    let stat = "unchanged";
+    let mes = "[[${client_id}]] [[${session_state}]]";
+    let targetOrigin = "[[${target_origin}]]" // Validates origin
+    let opFrameId = "op_session_management_iframe";
+    let pollingRate = [[${polling_rate}]]
+    let timerID;
+
+    function check_session() {
+        let win = window.parent.frames[opFrameId].contentWindow
+        win.postMessage(mes, targetOrigin);
+    }
+
+    function setTimer() {
+        check_session();
+        timerID = setInterval(check_session, pollingRate);
+    }
+
+    window.addEventListener("message", receiveMessage, false);
+
+    function receiveMessage(e) {
+        let console_debug = [[${console_debug}]]
+        if (e.origin !== targetOrigin) {
+
+            if(console_debug){
+                console.log("e.origin !== targetOrigin: " + e.origin !== targetOrigin)
+                console.log("e.origin: " + e.origin)
+                console.log("targetOrigin: " + targetOrigin)
+            }
+
+            return;
+        }
+        stat = e.data;
+
+        if(console_debug) {
+            console.log("e.origin !== targetOrigin: " + e.origin !== targetOrigin)
+            console.log("e.origin: " + e.origin)
+            console.log("targetOrigin: " + targetOrigin)
+            console.log("stat: " + stat)
+        }
+
+        if (stat === "changed") {
+            console.log("changed")
+
+            clearInterval(timerID);
+            window.top.location.href = "[[${logout_uri}]]"
+        }
+    }
+
+    setTimer();
+    /*]]>*/
+</script>

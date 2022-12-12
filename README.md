@@ -1,2 +1,4 @@
-# spring-boot-client-starter
-Client Starter for Spring Boot Applications
+# Spring Boot Client Starter
+
+This is the my own starter for all common security components in order to integrate your application with VAuthenticator.
+It includes filter, interceptor and global logout infrastructure
