@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService;
 public class VAuthenticatorUserConfig {
 
     @Bean
-    public VAuthenticatorOidcUserService vAuthenticatorOidcUserService(@Value("${vauthenticator.authorities-claim-name:authorities") String authorize){
+    public VAuthenticatorOidcUserService vAuthenticatorOidcUserService(@Value("${vauthenticator.authorities-claim-name:authorities}") String authorize){
         OidcUserService oidcUserService = new OidcUserService();
         return new VAuthenticatorOidcUserService(oidcUserService, authorize);
     }
