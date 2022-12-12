@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>it.valeriovaudi.vauthenticator.security</groupId>
-    <artifactId>client-security-starter</artifactId>
+    <artifactId>spring-boot-client-starter</artifactId>
     <version>0.4</version>
     <name>client-security-starter</name>
     <description>Demo project for Spring Boot</description>
