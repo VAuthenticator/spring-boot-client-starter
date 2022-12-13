@@ -1,4 +1,4 @@
-package it.valeriovaudi.vauthenticator.security.clientsecuritystarter.user;
+package com.vauthenticator.springbootclientstarter.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

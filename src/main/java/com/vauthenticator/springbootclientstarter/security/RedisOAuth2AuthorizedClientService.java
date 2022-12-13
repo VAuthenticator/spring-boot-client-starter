@@ -1,4 +1,4 @@
-package it.valeriovaudi.vauthenticator.security.clientsecuritystarter.security;
+package com.vauthenticator.springbootclientstarter.security;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.Authentication;

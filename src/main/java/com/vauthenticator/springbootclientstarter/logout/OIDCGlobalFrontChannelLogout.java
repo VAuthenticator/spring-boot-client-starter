@@ -1,4 +1,4 @@
-package it.valeriovaudi.vauthenticator.security.clientsecuritystarter.logout;
+package com.vauthenticator.springbootclientstarter.logout;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;

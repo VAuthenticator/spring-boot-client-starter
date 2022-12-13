@@ -1,4 +1,4 @@
-package it.valeriovaudi.vauthenticator.security.clientsecuritystarter.user;
+package com.vauthenticator.springbootclientstarter.user;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfiguration;

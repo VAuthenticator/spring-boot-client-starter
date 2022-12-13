@@ -1,4 +1,4 @@
-package it.valeriovaudi.vauthenticator.security.clientsecuritystarter.filter;
+package com.vauthenticator.springbootclientstarter.filter;
 
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 

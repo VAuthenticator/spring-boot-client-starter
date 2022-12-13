@@ -1,4 +1,4 @@
-package it.valeriovaudi.vauthenticator.security.clientsecuritystarter.session.management;
+package com.vauthenticator.springbootclientstarter.session.management;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestResolver;

@@ -1,4 +1,4 @@
-package it.valeriovaudi.vauthenticator.security.clientsecuritystarter.filter;
+package com.vauthenticator.springbootclientstarter.filter;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;

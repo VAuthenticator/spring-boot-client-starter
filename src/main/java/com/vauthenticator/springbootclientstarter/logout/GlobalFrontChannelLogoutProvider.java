@@ -1,4 +1,4 @@
-package it.valeriovaudi.vauthenticator.security.clientsecuritystarter.logout;
+package com.vauthenticator.springbootclientstarter.logout;
 
 import org.springframework.security.oauth2.core.oidc.OidcIdToken;
 import org.springframework.web.client.RestOperations;
