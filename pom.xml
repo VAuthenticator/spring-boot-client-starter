@@ -10,9 +10,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>it.valeriovaudi.vauthenticator.security</groupId>
+    <groupId>com.vautehnticator.client</groupId>
     <artifactId>spring-boot-client-starter</artifactId>
-    <version>0.4</version>
+    <version>0.4-SNAPSHOT</version>
     <name>client-security-starter</name>
     <description>Demo project for Spring Boot</description>
 
@@ -63,6 +63,14 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <name>Central Repository OSSRH</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>

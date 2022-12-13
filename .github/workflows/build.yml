@@ -46,3 +46,8 @@ jobs:
           mvn versions:set -DnewVersion=${{github.event.inputs.newversion}}
           git commit -am "new version release ${{github.event.inputs.newversion}}"
           git push
+
+      - name: Publish to GitHub Packages
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
