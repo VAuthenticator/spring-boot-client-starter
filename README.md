@@ -33,7 +33,7 @@ class WebSecurityConfig(
         http.logout()
             .deleteCookies("opbs")
             .invalidateHttpSession(true)
-            .logoutSuccessUrl("/secure/admin/index")
+            .logoutSuccessUrl("......")
 
 
         http.oauth2Login().defaultSuccessUrl("......")
