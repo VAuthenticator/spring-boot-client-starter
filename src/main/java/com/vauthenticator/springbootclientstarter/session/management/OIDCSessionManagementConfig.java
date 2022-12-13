@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequest
 
 @AutoConfiguration
 @ConditionalOnProperty(value = "vauthenticator.session-management.enabled", havingValue = "true")
-@ComponentScan("it.valeriovaudi.vauthenticator.security.clientsecuritystarter.session.management")
+@ComponentScan("com.vauthenticator.springbootclientstarter.session.management")
 public class OIDCSessionManagementConfig {
 
     @Bean

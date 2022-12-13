@@ -4,7 +4,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestResolver;
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 
-
 public class OAuth2AuthorizationRequestResolverWithSessionState implements OAuth2AuthorizationRequestResolver {
 
     private final OAuth2AuthorizationRequestResolver delegate;

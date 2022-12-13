@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
 @AutoConfiguration
-@ComponentScan("it.valeriovaudi.vauthenticator.security.clientsecuritystarter.logout")
+@ComponentScan("com.vauthenticator.springbootclientstarter.logout")
 public class GlobalFrontChannelConfig {
 
     @Bean("globalFrontChannelLogoutProvider")
