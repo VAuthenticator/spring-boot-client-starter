@@ -3,7 +3,7 @@ name: tag a new version
 on:
   workflow_dispatch:
     inputs:
-      tagversion:
+      version:
         description: 'Tag version'
         required: true
         type: string
