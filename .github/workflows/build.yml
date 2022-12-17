@@ -41,6 +41,7 @@ jobs:
           git config --global user.name "${{ secrets.GIT_USERNAME }}"
 
           mvn versions:set -DnewVersion=${{github.event.inputs.version}}
+          git commit -am "new version release ${{github.event.inputs.newversion}}"
 
       - name: Create tag
         uses: ncipollo/release-action@v1
