@@ -45,7 +45,7 @@ jobs:
           git config --global user.name "${{ secrets.GIT_USERNAME }}"
 
           mvn versions:set -DnewVersion=${{github.event.inputs.version}}
-          git commit -am "[skip ci]new version release ${{github.event.inputs.newversion}}"
+          git commit -am "[skip ci] new version release ${{github.event.inputs.newversion}}"
           git push
 
       - name: Create tag
