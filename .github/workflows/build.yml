@@ -54,6 +54,11 @@ jobs:
           bodyFile: changelog/${{github.event.inputs.version}}.md
           tag: ${{github.event.inputs.version}}
 
+      - name: Publish to GitHub Packages
+        run: mvn --batch-mode deploy -Dgpg.keyname="${{ secrets.GPG_KEYNAME }}" -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}"
+        env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
 
       - name: Upgrade Version
         run: |
@@ -64,8 +69,3 @@ jobs:
           git commit -am "new version release ${{github.event.inputs.newversion}}"
           git push
 
-      - name: Publish to GitHub Packages
-        run: mvn --batch-mode deploy -Dgpg.keyname="${{ secrets.GPG_KEYNAME }}" -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}"
-        env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
