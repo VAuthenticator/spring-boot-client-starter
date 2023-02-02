@@ -62,7 +62,7 @@ jobs:
           tag: ${{github.event.inputs.version}}
 
       - name: Publish to GitHub Packages
-        run: mvn mvn --batch-mode deploy -Prelease
+        run: mvn  --batch-mode deploy -Prelease
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
