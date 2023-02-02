@@ -37,7 +37,7 @@ jobs:
 
       - name: Build
         run: |
-          mvn clean install
+          mvn clean install -Dgpg.keyname="${{ secrets.GPG_KEYNAME }}" -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}"
 
       - name: set the Tag version
         run: |
