@@ -28,6 +28,10 @@ jobs:
         run: |
           echo this is the new tag version ${{github.event.inputs.version}}
 
+      - name: Install gpg secret key
+        run: |
+          cat <(echo -e "${{ secrets.GPG_SECRET_KEY }}") | gpg --batch --import
+          gpg --list-secret-keys --keyid-format LONG
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3
