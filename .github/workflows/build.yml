@@ -41,27 +41,27 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
       - name: Build
         run: |
-          mvn clean install
+          mvn clean install -q
 #
-#      - name: set the Tag version
-#        run: |
-#          git config --global user.email "${{ secrets.GIT_EMAIL }}"
-#          git config --global user.name "${{ secrets.GIT_USERNAME }}"
+      - name: set the Tag version
+        run: |
+          git config --global user.email "${{ secrets.GIT_EMAIL }}"
+          git config --global user.name "${{ secrets.GIT_USERNAME }}"
 #
 #          mvn versions:set -DnewVersion=${{github.event.inputs.version}}
 #          git commit -am "[skip ci] new version release ${{github.event.inputs.newversion}}"
 #          git push
 
-      - name: Create tag
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
+#      - name: Create tag
+#        uses: ncipollo/release-action@v1
+#        with:
+#          allowUpdates: true
 #          artifacts: "${{ github.workspace }}/target/*.jar"
-          bodyFile: changelog/${{github.event.inputs.version}}.md
-          tag: ${{github.event.inputs.version}}
+#          bodyFile: changelog/${{github.event.inputs.version}}.md
+#          tag: ${{github.event.inputs.version}}
 
       - name: Publish to GitHub Packages
-        run: mvn --batch-mode deploy
+        run: mvn release:prepare release:perform -B -s settings.xml -DreleaseVersion=${{ github.event.inputs.version }} -DdevelopmentVersion=${{ github.event.inputs.newversion }}
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
