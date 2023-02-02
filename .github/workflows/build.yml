@@ -67,7 +67,7 @@ jobs:
 #          tag: ${{github.event.inputs.version}}
 
       - name: Publish to GitHub Packages
-        run: mvn  clean install release:prepare release:perform -B -DreleaseVersion=${{ github.event.inputs.version }} -DdevelopmentVersion=${{ github.event.inputs.newversion }} -Prelease
+        run: mvn  clean install release:prepare release:perform -B -s settings.xml -DreleaseVersion=${{ github.event.inputs.version }} -DdevelopmentVersion=${{ github.event.inputs.newversion }} -Prelease
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
