@@ -34,23 +34,29 @@ jobs:
         with:
           java-version: 17
           distribution: 'corretto'
-
+          server-id: ossrh
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
       - name: Build
         run: |
           mvn clean install
-
-      - name: set the Tag version
-        run: |
-          git config --global user.email "${{ secrets.GIT_EMAIL }}"
-          git config --global user.name "${{ secrets.GIT_USERNAME }}"
-
-          mvn versions:set -DnewVersion=${{github.event.inputs.version}}
-          git commit -am "[skip ci] new version release ${{github.event.inputs.newversion}}"
-          git push
+#
+#      - name: set the Tag version
+#        run: |
+#          git config --global user.email "${{ secrets.GIT_EMAIL }}"
+#          git config --global user.name "${{ secrets.GIT_USERNAME }}"
+#
+#          mvn versions:set -DnewVersion=${{github.event.inputs.version}}
+#          git commit -am "[skip ci] new version release ${{github.event.inputs.newversion}}"
+#          git push
 
       - name: Create tag
         uses: ncipollo/release-action@v1
         with:
+          allowUpdates: true
+#          artifacts: "${{ github.workspace }}/target/*.jar"
           bodyFile: changelog/${{github.event.inputs.version}}.md
           tag: ${{github.event.inputs.version}}
 
@@ -59,13 +65,15 @@ jobs:
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
-      - name: Upgrade Version
-        run: |
-          git config --global user.email "${{ secrets.GIT_EMAIL }}"
-          git config --global user.name "${{ secrets.GIT_USERNAME }}"
-
-          mvn versions:set -DnewVersion=${{github.event.inputs.newversion}}
-          git commit -am "new version release ${{github.event.inputs.newversion}}"
-          git push
+#
+#      - name: Upgrade Version
+#        run: |
+#          git config --global user.email "${{ secrets.GIT_EMAIL }}"
+#          git config --global user.name "${{ secrets.GIT_USERNAME }}"
+#
+#          mvn versions:set -DnewVersion=${{github.event.inputs.newversion}}
+#          git commit -am "new version release ${{github.event.inputs.newversion}}"
+#          git push
 
