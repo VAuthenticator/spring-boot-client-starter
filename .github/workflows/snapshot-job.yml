@@ -1,4 +1,4 @@
-name: tag a new version
+name: tag a new snapshot version
 
 on:
   push: { }
