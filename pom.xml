@@ -33,7 +33,7 @@
         <developerConnection>scm:git:https://github.com/VAuthenticator/spring-boot-client-starter.git
         </developerConnection>
         <connection>scm:git:https://github.com/VAuthenticator/spring-boot-client-starter.git</connection>
-        <url>https://github.com/VAuthenticator/spring-boot-client-starter</url>
+        <url>https://github.com/VAuthenticator/spring-boot-client-starter.git</url>
     </scm>
 
 
