@@ -13,6 +13,7 @@ import org.springframework.security.oauth2.core.oidc.user.OidcUserAuthority;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
 public class VAuthenticatorOidcUserService implements OAuth2UserService<OidcUserRequest, OidcUser> {
 
     private final OidcUserService delegate;
