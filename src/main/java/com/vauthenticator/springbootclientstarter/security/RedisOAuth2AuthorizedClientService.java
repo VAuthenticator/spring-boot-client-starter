@@ -18,7 +18,6 @@ public class RedisOAuth2AuthorizedClientService implements OAuth2AuthorizedClien
         this.clientRegistrationRepository = clientRegistrationRepository;
     }
 
-
     @Override
     @SuppressWarnings("unchecked")
     public <T extends OAuth2AuthorizedClient> T loadAuthorizedClient(String clientRegistrationId, String principalName) {
